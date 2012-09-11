@@ -5,5 +5,6 @@
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">EcoDroid</string>
     <string name="ecodroidlogo">Ecodroid Logo</string>
-
+    <string name="BtnRec">Recicla!</string>
+	<string name="BtnPlay">Juega!</string>
 </resources>

@@ -4,12 +4,88 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
-    <ImageView 
+    
+    <LinearLayout 
+        xmlns:android="http://schemas.android.com/apk/res/android"
+    	xmlns:tools="http://schemas.android.com/tools"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal"> 
+    
+        <View 
+            android:id="@+id/spacer1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+        
+        <ImageView 
         android:contentDescription="@string/ecodroidlogo"
         android:id="@+id/ecodroidlogo"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:adjustViewBounds="true"
         android:src="@drawable/ecodroid"/>
+        
+        <View 
+            android:id="@+id/spacer2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+    
+    </LinearLayout>
+    
+    <LinearLayout 
+        xmlns:android="http://schemas.android.com/apk/res/android"
+    	xmlns:tools="http://schemas.android.com/tools"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal"> 
+    
+        <View 
+            android:id="@+id/spacerh1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+        
+        <Button 
+            android:id="@+id/BtnRec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/BtnRec"/>
+        
+        <View 
+            android:id="@+id/spacerh2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+    
+    </LinearLayout>
+    
+    <LinearLayout 
+        xmlns:android="http://schemas.android.com/apk/res/android"
+    	xmlns:tools="http://schemas.android.com/tools"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal"> 
+    
+        <View 
+            android:id="@+id/spacerh3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+        
+        <Button 
+            android:id="@+id/BtnPlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/BtnPlay"/>
+        
+        <View 
+            android:id="@+id/spacerh4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+    
+    </LinearLayout>
 
 </LinearLayout>
