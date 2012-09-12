@@ -6,5 +6,8 @@
     <string name="title_activity_main">EcoDroid</string>
     <string name="ecodroidlogo">Ecodroid Logo</string>
     <string name="BtnRec">Recicla!</string>
-	<string name="BtnPlay">Juega!</string>
+    <string name="BtnPlay">Juega!</string>
+    <string name="title_activity_rec">Recicla!</string>
+    <string name="title_activity_uno">Uno</string>
+
 </resources>
