@@ -41,7 +41,8 @@
         <TableRow
             android:id="@+id/tableRow1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
 
             <View
                 android:id="@+id/spacerh1"
@@ -54,9 +55,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/boton_normal"
+                android:background="@drawable/boton"
+                android:drawableLeft="@drawable/icono_reciclar"
                 android:onClick="OpenRec"
-                android:text="@string/BtnRec" />
+                android:text="@string/BtnRec"
+                android:textSize="25dp" />
 
             <View
                 android:id="@+id/spacerh2"
@@ -69,7 +72,8 @@
         <TableRow
             android:id="@+id/tableRow2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
 
             <View
                 android:id="@+id/spacerh3"
@@ -82,8 +86,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/boton_normal"
-                android:text="@string/BtnPlay" />
+                android:background="@drawable/boton"
+                android:drawableLeft="@drawable/icono_juegos"
+                android:text="@string/BtnPlay"
+                android:textSize="25dp" />
 
             <View
                 android:id="@+id/spacerh4"
