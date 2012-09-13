@@ -2,8 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-    
+    android:orientation="vertical"
+    android:background="#dddddd">
     
     <LinearLayout 
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -33,60 +33,65 @@
             android:layout_weight="1"/>
     
     </LinearLayout>
-    
-    <LinearLayout 
-        xmlns:android="http://schemas.android.com/apk/res/android"
-    	xmlns:tools="http://schemas.android.com/tools"
-    	android:layout_width="wrap_content"
-    	android:layout_height="wrap_content"
-    	android:orientation="horizontal"> 
-    
-        <View 
-            android:id="@+id/spacerh1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
-        
-        <Button 
-            android:id="@+id/BtnRec"
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TableRow
+            android:id="@+id/tableRow1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/BtnRec"
-            android:onClick="OpenRec"/>
-        
-        <View 
-            android:id="@+id/spacerh2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
-    
-    </LinearLayout>
-    
-    <LinearLayout 
-        xmlns:android="http://schemas.android.com/apk/res/android"
-    	xmlns:tools="http://schemas.android.com/tools"
-    	android:layout_width="wrap_content"
-    	android:layout_height="wrap_content"
-    	android:orientation="horizontal"> 
-    
-        <View 
-            android:id="@+id/spacerh3"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
-        
-        <Button 
-            android:id="@+id/BtnPlay"
+            android:layout_height="wrap_content" >
+
+            <View
+                android:id="@+id/spacerh1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/BtnRec"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/boton_normal"
+                android:onClick="OpenRec"
+                android:text="@string/BtnRec" />
+
+            <View
+                android:id="@+id/spacerh2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/BtnPlay"/>
-        
-        <View 
-            android:id="@+id/spacerh4"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
-    
-    </LinearLayout>
+            android:layout_height="wrap_content" >
+
+            <View
+                android:id="@+id/spacerh3"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/BtnPlay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/boton_normal"
+                android:text="@string/BtnPlay" />
+
+            <View
+                android:id="@+id/spacerh4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+        </TableRow>
+
+    </TableLayout>
 
 </LinearLayout>
