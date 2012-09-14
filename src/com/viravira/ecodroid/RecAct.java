@@ -8,7 +8,6 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 public class RecAct extends Activity {
 
@@ -17,24 +16,28 @@ public class RecAct extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_rec);
 
-		ListView ListRecCat = (ListView) findViewById(R.id.ListRecCat);
-		String[] Categorias = { "Botellas de Plastico", "Botellas de Vidrio",
-				"Latas", "Electronica", "Materia Organica" };
+		ListView ListRecCat = (ListView) findViewById(R.id.ListRecCat); //Lista para mostrar elementos.
+		
+		//Elementos a mostrar en la lista.
+		final String[] Categorias = { "Botellas de Plastico",
+				"Botellas de Vidrio", "Latas", "Electronica",
+				"Materia Organica" };
 
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, android.R.id.text1,
 				Categorias);
-		
+
 		ListRecCat.setAdapter(adapter);
-		
+
 		ListRecCat.setOnItemClickListener(new OnItemClickListener() {
 
 			public void onItemClick(AdapterView<?> parent, View view, int id,
 					long position) {
-				
-				Toast.makeText(getApplicationContext(), "ClickListener number " + position, Toast.LENGTH_LONG).show();
-				
-				
+
+				// Toast.makeText(getApplicationContext(),
+				// "ClickListener number " + position,
+				// Toast.LENGTH_LONG).show();
+
 			}
 		});
 	}

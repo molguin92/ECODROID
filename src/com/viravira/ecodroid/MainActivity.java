@@ -24,4 +24,9 @@ public class MainActivity extends Activity {
     	Intent openrec = new Intent(this, RecAct.class);
     	startActivity(openrec);
     }
+    
+    public void OpenPlay(View view){
+    	Intent openplay = new Intent(this, PlayAct.class);
+    	startActivity(openplay);
+    }
 }

@@ -9,5 +9,6 @@
     <string name="BtnPlay">Juega!</string>
     <string name="title_activity_rec">Recicla!</string>
     <string name="title_activity_uno">Uno</string>
+    <string name="title_activity_play">Juega!</string>
 
 </resources>

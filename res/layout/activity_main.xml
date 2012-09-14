@@ -89,7 +89,8 @@
                 android:background="@drawable/boton"
                 android:drawableLeft="@drawable/icono_juegos"
                 android:text="@string/BtnPlay"
-                android:textSize="25dp" />
+                android:textSize="25dp"
+                android:onClick="OpenPlay" />
 
             <View
                 android:id="@+id/spacerh4"

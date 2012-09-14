@@ -27,6 +27,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.viravira.ecodroid.MainActivity" />
         </activity>
+        <activity
+            android:name=".PlayAct"
+            android:label="@string/title_activity_play" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.viravira.ecodroid.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
