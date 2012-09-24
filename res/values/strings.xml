@@ -7,6 +7,9 @@
     <string name="ecodroidlogo">Ecodroid Logo</string>
     <string name="BtnRec">Recicla!</string>
     <string name="BtnPlay">Juega!</string>
+    <string name="BtnNewGame">Nueva Partida</string>
+    <string name="BtnContinue">Continuar</string>
+    <string name="BtnSettings">Configuración</string>
     <string name="title_activity_rec">Recicla!</string>
     <string name="title_activity_uno">Uno</string>
     <string name="title_activity_play">Juega!</string>

@@ -33,6 +33,12 @@
             android:layout_weight="1"/>
     
     </LinearLayout>
+    
+    <View
+        android:id="@+id/spacervert1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
     <TableLayout
         android:layout_width="match_parent"
@@ -51,14 +57,14 @@
                 android:layout_weight="1" />
 
             <Button
-                android:id="@+id/BtnRec"
+                android:id="@+id/BtnNewGame"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/boton"
-                android:drawableLeft="@drawable/icono_reciclar"
+                android:drawableLeft="@drawable/icono_juegos"
                 android:onClick="OpenRec"
-                android:text="@string/BtnRec"
+                android:text="@string/BtnNewGame"
                 android:textSize="25dp" />
 
             <View
@@ -82,13 +88,13 @@
                 android:layout_weight="1" />
 
             <Button
-                android:id="@+id/BtnPlay"
+                android:id="@+id/BtnContinue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/boton"
                 android:drawableLeft="@drawable/icono_juegos"
-                android:text="@string/BtnPlay"
+                android:text="@string/BtnContinue"
                 android:textSize="25dp"
                 android:onClick="OpenPlay" />
 
@@ -98,7 +104,45 @@
                 android:layout_height="0dp"
                 android:layout_weight="1" />
         </TableRow>
+        
+        
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <View
+                android:id="@+id/spacerh5"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/BtnSettings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/boton"
+                android:drawableLeft="@drawable/icono_juegos"
+                android:text="@string/BtnSettings"
+                android:textSize="25dp"
+                android:onClick="OpenPlay" />
+
+            <View
+                android:id="@+id/spacerh6"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+        </TableRow>
+        
 
     </TableLayout>
 
+    <View
+        android:id="@+id/spacervert2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    
 </LinearLayout>
