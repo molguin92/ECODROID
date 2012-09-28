@@ -2,8 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#dddddd">
+    android:background="#dddddd"
+    android:orientation="vertical" >
     
     <LinearLayout 
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -40,10 +40,46 @@
         android:layout_height="0dp"
         android:layout_weight="1"/>
 
+    <Gallery android:id="@+id/gallery1" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+
+    
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
+        <TableRow
+            android:id="@+id/tableRow0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <View
+                android:id="@+id/spacerh0"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/score"
+                android:layout_gravity="right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/score"
+                android:text="@string/title_score"
+                android:textSize="20dp" />
+
+            <View
+                android:id="@+id/spacerh01"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+        </TableRow>        
+        
+        
+        
         <TableRow
             android:id="@+id/tableRow1"
             android:layout_width="wrap_content"
@@ -57,15 +93,15 @@
                 android:layout_weight="1" />
 
             <Button
-                android:id="@+id/BtnNewGame"
+                android:id="@+id/Desafio1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/boton"
-                android:drawableLeft="@drawable/icono_juegos"
-                android:onClick="OpenRec"
-                android:text="@string/BtnNewGame"
-                android:textSize="25dp" />
+                android:drawableLeft="@drawable/desafio1"
+                android:onClick="Desafio1"
+                android:text="@string/title_desafio1"
+                android:textSize="20dp" />
 
             <View
                 android:id="@+id/spacerh2"
@@ -88,15 +124,15 @@
                 android:layout_weight="1" />
 
             <Button
-                android:id="@+id/BtnContinue"
+                android:id="@+id/Desafio2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/boton"
-                android:drawableLeft="@drawable/icono_juegos"
-                android:text="@string/BtnContinue"
-                android:textSize="25dp"
-                android:onClick="OpenPlay" />
+                android:drawableLeft="@drawable/desafio2"
+                android:text="@string/title_desafio2"
+                android:textSize="20dp"
+                android:onClick="Desafio2" />
 
             <View
                 android:id="@+id/spacerh4"
@@ -104,7 +140,6 @@
                 android:layout_height="0dp"
                 android:layout_weight="1" />
         </TableRow>
-        
         
         <TableRow
             android:id="@+id/tableRow3"
@@ -119,18 +154,48 @@
                 android:layout_weight="1" />
 
             <Button
+                android:id="@+id/Desafio3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/boton"
+                android:drawableLeft="@drawable/desafio3"
+                android:text="@string/title_desafio3"
+                android:textSize="20dp"
+                android:onClick="Desafio3" />
+
+            <View
+                android:id="@+id/spacerh6"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+        </TableRow> 
+               
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <View
+                android:id="@+id/spacerh7"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <Button
                 android:id="@+id/BtnSettings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/boton"
-                android:drawableLeft="@drawable/icono_juegos"
+                android:drawableLeft="@drawable/settings"
                 android:text="@string/BtnSettings"
                 android:textSize="25dp"
                 android:onClick="OpenPlay" />
 
             <View
-                android:id="@+id/spacerh6"
+                android:id="@+id/spacerh8"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_weight="1" />
