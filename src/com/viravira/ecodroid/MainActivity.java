@@ -1,21 +1,37 @@
 package com.viravira.ecodroid;
 
+import java.util.Random;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.View;
 
 public class MainActivity extends Activity {
+	
+	public int desafio1;
+	public int desafio2;
+	public int desafio3;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        //A continuación se incluye el código para cargar los desafíos activos.
+        //Si alguno de los desafíos no tiene un valor guardado, se genera uno al azar.
+        SharedPreferences desafios = PreferenceManager.getDefaultSharedPreferences(this);
+        Random desafiosazar = new Random();
+        desafio1 = desafios.getInt("desafio1", desafiosazar.nextInt(50));
+        desafio2 = desafios.getInt("desafio2", desafiosazar.nextInt(50));
+        desafio3 = desafios.getInt("desafio3", desafiosazar.nextInt(50));
     }
 
     @Override
