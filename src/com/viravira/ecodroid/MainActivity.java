@@ -14,24 +14,94 @@ import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.View;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+
 public class MainActivity extends Activity {
 	
-	public int desafio1;
-	public int desafio2;
-	public int desafio3;
+	//Variables públicas para compartir información entre distintos métodos.
+	public int desafioint1;
+	public int desafioint2;
+	public int desafioint3;
+	public String desafio1;
+	public String desafio2;
+	public String desafio3;
+	public String puntaje1;
+	public String puntaje2;
+	public String puntaje3;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
+        String[] Desafios = new String[50];
+		String[] Puntajes = new String[50];
+        
+        
+        // El siguiente bloque de Try/Catch lee los desafíos desde un archivo "desafios.txt",
+        // los puntajes asociados a cada uno de los desafíos desde un archuvi "puntajes.txt",
+        // y luego almacena los datos en dos arreglos, Desafios y Puntajes. Se asume que el 
+        // número de desafíos será 50.
+        try {
+			BufferedReader archivodesafios = new BufferedReader(new FileReader("desafios.txt"));
+			BufferedReader archivopuntajes = new BufferedReader(new FileReader("puntajes.txt"));
+		    
+			int i = 0;
+			
+			while(!(archivodesafios.readLine().equals(null) && archivopuntajes.readLine().equals(null))){
+				Desafios[i] = archivodesafios.readLine();
+				Puntajes[i] = archivopuntajes.readLine();
+			}
+			
+			try {
+				if(!archivodesafios.equals(null)){
+					archivodesafios.close();
+				} 
+			} catch (IOException e) {
+				e.printStackTrace();
+				System.exit(1);
+			}
+			
+			try {
+				if(!archivopuntajes.equals(null)){
+					archivopuntajes.close();
+				} 
+			} catch (IOException e) {
+				e.printStackTrace();
+				System.exit(1);
+			}
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.exit(1);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.exit(1);
+		}
+        
         //A continuación se incluye el código para cargar los desafíos activos.
         //Si alguno de los desafíos no tiene un valor guardado, se genera uno al azar.
         SharedPreferences desafios = PreferenceManager.getDefaultSharedPreferences(this);
         Random desafiosazar = new Random();
-        desafio1 = desafios.getInt("desafio1", desafiosazar.nextInt(50));
-        desafio2 = desafios.getInt("desafio2", desafiosazar.nextInt(50));
-        desafio3 = desafios.getInt("desafio3", desafiosazar.nextInt(50));
+        desafioint1 = desafios.getInt("desafio1", desafiosazar.nextInt(50));
+        desafioint2 = desafios.getInt("desafio2", desafiosazar.nextInt(50));
+        desafioint3 = desafios.getInt("desafio3", desafiosazar.nextInt(50));
+        
+        desafio1 = Desafios[desafioint1];
+        desafio2 = Desafios[desafioint2];
+        desafio3 = Desafios[desafioint3];
+        
+        puntaje1 = Puntajes[desafioint1];
+        puntaje2 = Puntajes[desafioint2];
+        puntaje3 = Puntajes[desafioint3];
+        
+        
     }
 
     @Override
