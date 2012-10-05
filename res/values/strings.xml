@@ -17,8 +17,8 @@
     <string name="desafio1">Recicla 10 botellas de vidrio en una semana. ¿Aceptar este desafío? (8 ptos)</string>
     <string name="desafio2">Ve a trabajar/estudiar en bicicleta 3 veces a la semana. ¿Aceptar este desafío? (12 ptos)</string>	
     <string name="desafio3">Tarda la mitad del tiempo en lavarte, por 1 semana. ¿Aceptar este desafío? (10 ptos)</string>	
-	<string name="si">Sí</string>
-	<string name="no">No</string>
+	<string name="si">Completado</string>
+	<string name="no">Cancelar</string>
 	<string name="title_desafio1">Desafío 1</string>
     <string name="title_desafio2">Desafío 2</string>
     <string name="title_desafio3">Desafío 3</string>
