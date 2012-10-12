@@ -19,12 +19,12 @@
             android:layout_weight="1"/>
         
         <ImageView 
-        android:contentDescription="@string/ecodroidlogo"
-        android:id="@+id/ecodroidlogo"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:adjustViewBounds="true"
-        android:src="@drawable/ecodroid"/>
+	        android:contentDescription="@string/ecodroidlogo"
+	        android:id="@+id/ecodroidlogo"
+	        android:layout_height="wrap_content"
+	        android:layout_width="wrap_content"
+	        android:adjustViewBounds="true"
+	        android:src="@drawable/ecodroid"/>
         
         <View 
             android:id="@+id/spacer2"
@@ -169,38 +169,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_weight="1" />
-        </TableRow> 
-               
-        <TableRow
-            android:id="@+id/tableRow4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" >
-
-            <View
-                android:id="@+id/spacerh7"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-
-            <Button
-                android:id="@+id/BtnSettings"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/boton"
-                android:drawableLeft="@drawable/settings"
-                android:text="@string/BtnSettings"
-                android:textSize="25dp"
-                android:onClick="OpenPlay" />
-
-            <View
-                android:id="@+id/spacerh8"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-        </TableRow>
-        
+        </TableRow>         
 
     </TableLayout>
 

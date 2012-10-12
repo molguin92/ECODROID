@@ -21,15 +21,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RecAct"
-            android:label="@string/title_activity_rec" >
+            android:name=".Desafio1"
+            android:label="@string/title_activity_desafio1" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.viravira.ecodroid.MainActivity" />
         </activity>
         <activity
-            android:name=".PlayAct"
-            android:label="@string/title_activity_play" >
+            android:name=".Desafio2"
+            android:label="@string/title_activity_desafio2" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.viravira.ecodroid.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Desafio3"
+            android:label="@string/title_activity_desafio3" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.viravira.ecodroid.MainActivity" />

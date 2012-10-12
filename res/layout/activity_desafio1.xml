@@ -1,0 +1,57 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+        
+   <TextView
+        android:id="@+id/titulodes1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="50dp"
+        tools:context=".Desafio1" />
+    
+    <TextView
+        android:id="@+id/textodes1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="30dp"
+        tools:context=".Desafio1" />
+    
+    <TextView
+        android:id="@+id/puntajedes1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="30dp"
+        tools:context=".Desafio1" />
+    
+    <View 
+        android:id="@+id/espacio"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    
+    <Button 
+        android:id="@+id/btncompletado1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/si"
+        android:textSize="20dp"
+        android:onClick="Completado"
+        tools:context=".Desafio1"/>
+    
+    <Button 
+        android:id="@+id/btncancelar1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/no"
+        android:textSize="20dp"
+        android:onClick="Cancelar"
+        tools:context=".Desafio1"/>
+
+</LinearLayout>

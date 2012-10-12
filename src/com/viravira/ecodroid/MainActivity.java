@@ -6,10 +6,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Random;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -31,15 +27,14 @@ public class MainActivity extends Activity {
 	public String titulo1;
 	public String titulo2;
 	public String titulo3;
+	public String[] Desafios = new String[50];
+	public String[] Puntajes = new String[50];
+	public String[] Titulos = new String[50];
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
-		String[] Desafios = new String[50];
-		String[] Puntajes = new String[50];
-		String[] Titulos = new String[50];
 
 		// El siguiente bloque de Try/Catch lee los desafíos desde un archivo
 		// "desafios.txt",
@@ -147,102 +142,17 @@ public class MainActivity extends Activity {
 	}
 
 	public void Desafio1(View view) {
-		// Intent openrec = new Intent(this, RecAct.class);
-		// startActivity(openrec);
-		showDialog(0);
-
+		Intent intent = new Intent(this, Desafio1.class);
+		startActivity(intent);
 	}
 
 	public void Desafio2(View view) {
-		// Intent openplay = new Intent(this, PlayAct.class);
-		// startActivity(openplay);
-		showDialog(1);
+		Intent intent = new Intent(this, Desafio2.class);
+		startActivity(intent);
 	}
 
 	public void Desafio3(View view) {
-		showDialog(2);
-	}
-
-	public void OpenPlay(View view) {
-		Intent openplay = new Intent(this, PlayAct.class);
-		startActivity(openplay);
-
-	}
-
-	@Override
-	protected Dialog onCreateDialog(int id) {
-		Dialog dialogo = crearAlerta(id);
-		return dialogo;
-	}
-
-	private AlertDialog crearAlerta(final int id) {
-
-		// Aquí se crean los dialogs correspondientes a cada desafío.
-		// Los textos, titulos y puntajes se establecen a partir de los
-		// strings generados anteriormente (a partir de los archivos
-		// desafios.txt, titulos.txt y puntajes.txt.
-
-		AlertDialog miAlerta;
-
-		AlertDialog.Builder miConstructor = new AlertDialog.Builder(this);
-
-		if (id == 0) {
-			miConstructor.setTitle(titulo1 + " - " + puntaje1);
-			miConstructor.setMessage(desafio1);
-			miConstructor.setIcon(R.drawable.desafio1);
-		} else if (id == 1) {
-			miConstructor.setTitle(titulo2 + " - " + puntaje2);
-			miConstructor.setMessage(desafio2);
-			miConstructor.setIcon(R.drawable.desafio2);
-		} else if (id == 2) {
-			miConstructor.setTitle(titulo3 + " - " + puntaje3);
-			miConstructor.setMessage(desafio3);
-			miConstructor.setIcon(R.drawable.desafio3);
-		}
-
-		// La alerta será cancelable
-		miConstructor.setCancelable(true);
-
-		// Se añade el botón "Completado", junto con su listener
-		miConstructor.setPositiveButton(R.string.si, new OnClickListener() {
-			public void onClick(DialogInterface dialog, int which) {
-
-				// Aquí se genera un nuevo desafío cuando el usuario completa el
-				// desafío anterior.
-				// Por el momento, este cambio sólo se ve reflejado cuando se
-				// reinicia la app.
-
-				Random desafiosazar = new Random();
-
-				SharedPreferences desafios = MainActivity.this
-						.getApplicationContext().getSharedPreferences("Prefs",
-								0);
-				SharedPreferences.Editor editor = desafios.edit();
-
-				if (id == 0) {
-					editor.putInt("desafio1", desafiosazar.nextInt(50));
-				} else if (id == 1) {
-					editor.putInt("desafio2", desafiosazar.nextInt(50));
-				} else {
-					editor.putInt("desafio3", desafiosazar.nextInt(50));
-				}
-
-				editor.commit();
-
-				// El dialogo se cierra
-				dialog.dismiss();
-			}
-		});
-
-		// Se añade el botón "No", junto con su listener
-		miConstructor.setNegativeButton(R.string.no, new OnClickListener() {
-			public void onClick(DialogInterface dialog, int which) {
-				// El dialogo se cierra
-				dialog.dismiss();
-			}
-		});
-
-		miAlerta = miConstructor.create();
-		return miAlerta;
+		Intent intent = new Intent(this, Desafio3.class);
+		startActivity(intent);
 	}
 }
