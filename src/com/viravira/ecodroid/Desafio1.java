@@ -1,3 +1,14 @@
+// Desafio1 is a part of ECODROID.
+
+/* 
+Desafio1 es la actividad correspondiente al primer 
+desafío presentado en MainActivity. Aquí se muestran
+todos los detalles del desafío, junto con botones para
+cancelar o marcar el desafío como completado. En el 
+caso de la segunda opción, se analiza el puntaje 
+asociado al desafío y se suma a un total.
+*/
+
 package com.viravira.ecodroid;
 
 import java.io.BufferedReader;
@@ -5,7 +16,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Random;
-
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -21,6 +31,11 @@ public class Desafio1 extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_desafio1);
+		
+		// A continuación se leen los datos guardados en las preferencias
+		// de la app, y se carga el desafío correspondiente.
+		// Luego, se actualizan los TextViews correspondientes con los 
+		// datos guardados.
 
 		TextView tviewtitulo = (TextView) findViewById(R.id.titulodes1);
 		TextView tviewdesafio = (TextView) findViewById(R.id.textodes1);
@@ -42,6 +57,8 @@ public class Desafio1 extends Activity {
 			
 			int desafioint = desafios.getInt("desafio1", desafiosazar.nextInt(50));
 			
+			// El siguiente comando "for" es para saltarse el número
+			// de líneas necesario para llegar a la línea del desafío.
 			for(int i = 0; i < desafioint; i++){
 				archivodesafios.readLine();
 				archivopuntajes.readLine();
@@ -106,6 +123,14 @@ public class Desafio1 extends Activity {
 	}
 	
 	public void Completado (View view){
+	
+		// Este método describe el botón "Completado".
+		// Aquí se genera un nuevo desafío al completar
+		// el anterior, y se actualiza la información 
+		// guardada en SharedPreferences.
+		// También se actualiza el puntaje total del 
+		// usuario (se suma el ptje anterior con el
+		// puntaje asociado al desafío en cuestión.
 		
 		Random desafiosazar = new Random();
 

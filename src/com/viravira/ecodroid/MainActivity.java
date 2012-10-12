@@ -1,4 +1,53 @@
-package com.viravira.ecodroid;
+/*
+ECODROID es un juego cuya misión es ayudar a aprender cómo cuidar
+el medioambiente.
+
+ECODROID is a game which aims to teach the user how to take care of
+the environment.
+
+Copyright (C) 2012  Manuel Olguín
+
+-- ESPAÑOL --
+
+Este programa es software libre: puede ser redistribuído y/o modificado
+bajo los términos de la GNU General Public License, tal cual ha sido 
+dictada por la Free Software Foundation, ya sea la versión 3 de dicha 
+licencia o (a elección) cualquier versión posterior.
+
+Éste programa es distribuído con la esperanza de que sea útil, pero 
+SIN GARANTÍA ALGUNA; nisiquiera la garantía implícita de MERCANTIBILIDAD
+o APTITUD DE USO PARA UN PROPÓSITO PARTICULAR. Para mayor detalle, vea
+la GNU General Public License.
+
+Debió haber recibido una copia de la GNU General Public License con
+éste programa. De no ser así, vea <http://www.gnu.org/licenses/licenses.es.html>
+
+-- ENGLISH --
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+	
+*/
+
+/* 
+Éste archivo contiene la actividad principal de ECODROID.
+Aquí se leen los estados guardados en sesiones anteriores,
+se generan nuevos desafíos en caso de ser necesario, y se 
+presentan en botones, los cuales abren actividades con 
+detalles sobre los respectivos desafíos. También presenta
+una opción para resetear la app.
+*/
+ com.viravira.ecodroid;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -109,7 +158,7 @@ public class MainActivity extends Activity {
 		// Si alguno de los desafíos no tiene un valor guardado, se genera uno
 		// al azar.
 		// Los desafíos se mantienen activos hasta que el usuario presione
-		// "Completado" en el dialog.
+		// "Completado" en la actividad correspondiente.
 
 		SharedPreferences desafios = MainActivity.this.getApplicationContext()
 				.getSharedPreferences("Prefs", 0);
@@ -134,22 +183,26 @@ public class MainActivity extends Activity {
 		titulo1 = Titulos[desafioint1];
 		titulo2 = Titulos[desafioint2];
 		titulo3 = Titulos[desafioint3];
-
+		
 		TextView puntaje = (TextView) findViewById(R.id.score);
 		Button btn1 = (Button) findViewById(R.id.Desafio1);
 		Button btn2 = (Button) findViewById(R.id.Desafio2);
 		Button btn3 = (Button) findViewById(R.id.Desafio3);
-
+		
+		// Se carga el puntaje total del usuario. Valor por defecto es 0.
 		puntajetotal = desafios.getInt("puntaje", 0);
 		
+		// Se actualizan los títulos de los botones y el valor
+		// del contador de puntaje.
 		btn1.setText(titulo1);
 		btn2.setText(titulo2);
 		btn3.setText(titulo3);
-
-		puntaje.setText(" "+puntajetotal+" pts");
+				
+		String pts = getString(R.string.pts);
+		puntaje.setText(" "+puntajetotal+" "+pts);
 
 		// A continuación, se guardan los valores hasta que se pulse
-		// "Completado" en el dialog.
+		// "Completado" en la actividad.
 
 		SharedPreferences.Editor editor = desafios.edit();
 
@@ -163,15 +216,19 @@ public class MainActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
+	
+	// Aquí se crea un menú con una opción de reseteo
+	// del contador de puntaje y los desafíos.
 		getMenuInflater().inflate(R.menu.mainmenu, menu);
 		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle item selection
 		switch (item.getItemId()) {
 		case R.id.cleanprefs:
+			// Elemento del menú para resetar la 
+			// aplicación en su totalidad.
 			cleanPrefs();
 			initDesafios();
 			return true;
@@ -181,6 +238,9 @@ public class MainActivity extends Activity {
 	}
 
 	public void cleanPrefs(){
+	
+		// Éste método es llamado por el botón de reseteo
+		// para borrar todos los datos de la app.
 
 		SharedPreferences desafios = MainActivity.this.getApplicationContext()
 				.getSharedPreferences("Prefs", 0);
@@ -194,12 +254,19 @@ public class MainActivity extends Activity {
 	}
 
 	public void onResume(){
+	
+		// Actualiza la actividad al volver desde un desafío.
+		
 		super.onResume();
 
 		initDesafios();
 
 	}
-
+	
+	// Los siguientes tres métodos están asociados a cada uno 
+	// de los tres botones, e inician la actividad correspondiente
+	// a cada desafío.
+	
 	public void Desafio1(View view) {
 		Intent intent = new Intent(this, Desafio1.class);
 		startActivity(intent);
