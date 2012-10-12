@@ -5,12 +5,16 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Random;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
@@ -30,11 +34,18 @@ public class MainActivity extends Activity {
 	public String[] Desafios = new String[50];
 	public String[] Puntajes = new String[50];
 	public String[] Titulos = new String[50];
+	public int puntajetotal;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+		initDesafios();
+
+	}
+
+	public void initDesafios(){
 
 		// El siguiente bloque de Try/Catch lee los desafíos desde un archivo
 		// "desafios.txt",
@@ -110,6 +121,8 @@ public class MainActivity extends Activity {
 		desafioint2 = desafios.getInt("desafio2", desafiosazar.nextInt(50));
 		desafioint3 = desafios.getInt("desafio3", desafiosazar.nextInt(50));
 
+		puntajetotal = desafios.getInt("puntaje", 0);
+
 		desafio1 = Desafios[desafioint1];
 		desafio2 = Desafios[desafioint2];
 		desafio3 = Desafios[desafioint3];
@@ -121,6 +134,19 @@ public class MainActivity extends Activity {
 		titulo1 = Titulos[desafioint1];
 		titulo2 = Titulos[desafioint2];
 		titulo3 = Titulos[desafioint3];
+
+		TextView puntaje = (TextView) findViewById(R.id.score);
+		Button btn1 = (Button) findViewById(R.id.Desafio1);
+		Button btn2 = (Button) findViewById(R.id.Desafio2);
+		Button btn3 = (Button) findViewById(R.id.Desafio3);
+
+		puntajetotal = desafios.getInt("puntaje", 0);
+		
+		btn1.setText(titulo1);
+		btn2.setText(titulo2);
+		btn3.setText(titulo3);
+
+		puntaje.setText(" "+puntajetotal+" pts");
 
 		// A continuación, se guardan los valores hasta que se pulse
 		// "Completado" en el dialog.
@@ -137,8 +163,41 @@ public class MainActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.activity_main, menu);
+		getMenuInflater().inflate(R.menu.mainmenu, menu);
 		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle item selection
+		switch (item.getItemId()) {
+		case R.id.cleanprefs:
+			cleanPrefs();
+			initDesafios();
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+	}
+
+	public void cleanPrefs(){
+
+		SharedPreferences desafios = MainActivity.this.getApplicationContext()
+				.getSharedPreferences("Prefs", 0);
+
+		SharedPreferences.Editor editor = desafios.edit();
+
+		editor.clear();
+
+		editor.commit();
+
+	}
+
+	public void onResume(){
+		super.onResume();
+
+		initDesafios();
+
 	}
 
 	public void Desafio1(View view) {

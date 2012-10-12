@@ -67,7 +67,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:drawableLeft="@drawable/score"
-                android:text="@string/title_score"
                 android:textSize="20dp" />
 
             <View

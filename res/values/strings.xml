@@ -25,5 +25,6 @@
     <string name="title_activity_desafio1">Desafio1</string>
     <string name="title_activity_desafio2">Desafio2</string>
     <string name="title_activity_desafio3">Desafio3</string>
+    <string name="cleanprefs"> Reset</string>
 
 </resources>

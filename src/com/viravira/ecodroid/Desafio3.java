@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 public class Desafio3 extends Activity {
 
+	public String puntaje;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -48,11 +50,11 @@ public class Desafio3 extends Activity {
 			
 			String texto = archivodesafios.readLine();
 			String titulo = archivotitulos.readLine();
-			String puntaje = archivopuntajes.readLine();
+			puntaje = archivopuntajes.readLine();
 			
 			tviewdesafio.setText(texto);
 			tviewtitulo.setText(titulo);
-			tviewpuntaje.setText(puntaje);
+			tviewpuntaje.setText(puntaje + "pts");
 			
 			SharedPreferences.Editor editor = desafios.edit();
 
@@ -110,9 +112,13 @@ public class Desafio3 extends Activity {
 		SharedPreferences desafios = Desafio3.this
 				.getApplicationContext().getSharedPreferences("Prefs",
 						0);
+		
+		int puntajetotal = Integer.parseInt(puntaje) + desafios.getInt("puntaje", 0);
+		
 		SharedPreferences.Editor editor = desafios.edit();
 
 		editor.putInt("desafio3", desafiosazar.nextInt(50));
+		editor.putInt("puntaje", puntajetotal);
 
 		editor.commit();
 		
