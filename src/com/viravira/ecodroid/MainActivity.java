@@ -1,4 +1,5 @@
 /*
+
 ECODROID es un juego cuya misión es ayudar a aprender cómo cuidar
 el medioambiente.
 
@@ -36,10 +37,7 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
-	
-*/
-
-/* 
+ 
 Éste archivo contiene la actividad principal de ECODROID.
 Aquí se leen los estados guardados en sesiones anteriores,
 se generan nuevos desafíos en caso de ser necesario, y se 
@@ -47,7 +45,8 @@ presentan en botones, los cuales abren actividades con
 detalles sobre los respectivos desafíos. También presenta
 una opción para resetear la app.
 */
- com.viravira.ecodroid;
+
+package com.viravira.ecodroid;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
