@@ -268,16 +268,19 @@ public class MainActivity extends Activity {
 	
 	public void Desafio1(View view) {
 		Intent intent = new Intent(this, Desafio1.class);
+		intent.putExtra("num", 1);
 		startActivity(intent);
 	}
 
 	public void Desafio2(View view) {
-		Intent intent = new Intent(this, Desafio2.class);
+		Intent intent = new Intent(this, Desafio1.class);
+		intent.putExtra("num", 2);
 		startActivity(intent);
 	}
 
 	public void Desafio3(View view) {
-		Intent intent = new Intent(this, Desafio3.class);
+		Intent intent = new Intent(this, Desafio1.class);
+		intent.putExtra("num", 3);
 		startActivity(intent);
 	}
 }
