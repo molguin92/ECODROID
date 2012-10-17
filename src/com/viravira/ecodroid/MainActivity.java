@@ -57,12 +57,14 @@ import java.util.Random;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -282,5 +284,16 @@ public class MainActivity extends Activity {
 		Intent intent = new Intent(this, Desafio1.class);
 		intent.putExtra("num", 3);
 		startActivity(intent);
+	}
+	
+	public void TweetIt(View view) {
+		String tweetUrl = "https://twitter.com/intent/tweet?text=Estoy usando EcoDroid. ¡Ya llevo "+puntajetotal+" puntos!"+
+		"&hashtags=EcoDroid";
+		Uri uri = Uri.parse(tweetUrl);
+		int duration = Toast.LENGTH_LONG;
+		Toast toast = Toast.makeText(getBaseContext(), "Al terminar, pulsa el botón Atrás las veces necesarias hasta volver a la aplicación", duration);
+		
+		toast.show();
+		startActivity(new Intent(Intent.ACTION_VIEW, uri));
 	}
 }

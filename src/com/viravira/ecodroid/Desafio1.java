@@ -30,7 +30,7 @@ import android.widget.Toast;
 public class Desafio1 extends Activity {
 	
 	public String puntaje;
-	String numdesafio;
+	public String numdesafio;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -86,7 +86,7 @@ public class Desafio1 extends Activity {
 			
 			tviewdesafio.setText(texto);
 			tviewtitulo.setText(titulo);
-			tviewpuntaje.setText(puntaje + "pts");
+			tviewpuntaje.setText(puntaje + getString(R.string.pts));
 			
 			SharedPreferences.Editor editor = desafios.edit();
 			editor.putInt(numdesafio, desafioint);
@@ -172,7 +172,8 @@ public class Desafio1 extends Activity {
 		editor.commit();
 		
 		int duration = Toast.LENGTH_SHORT;
-		Toast toast = Toast.makeText(context, "Has ganado " + puntaje + " pts!", duration);
+		Toast toast = Toast.makeText(context, "Has ganado " + puntaje + " "+getString(R.string.pts)+
+				"!", duration);
 		
 		toast.show();
 		

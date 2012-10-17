@@ -75,9 +75,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1" />
 
-        </TableRow>        
-        
-        
+        </TableRow>
         
         <TableRow
             android:id="@+id/tableRow1"
@@ -138,6 +136,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_weight="1" />
+
         </TableRow>
         
         <TableRow
@@ -168,7 +167,38 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_weight="1" />
-        </TableRow>         
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <View
+                android:id="@+id/spacerh7"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/TweetIt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/boton"
+                android:drawableLeft="@drawable/icono_twitter"
+                android:onClick="TweetIt"
+                android:text="@string/tweetit"
+                android:textSize="20dp" />
+
+            <View
+                android:id="@+id/spacerh8"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+        </TableRow>
 
     </TableLayout>
 
