@@ -2,11 +2,11 @@
 
 /* 
 Desafio1 es la actividad correspondiente al primer 
-desaf�o presentado en MainActivity. Aqu� se muestran
-todos los detalles del desaf�o, junto con botones para
-cancelar o marcar el desaf�o como completado. En el 
-caso de la segunda opci�n, se analiza el puntaje 
-asociado al desaf�o y se suma a un total.
+desafío presentado en MainActivity. Aquí se muestran
+todos los detalles del desafío, junto con botones para
+cancelar o marcar el desafío como completado. En el 
+caso de la segunda opción, se analiza el puntaje 
+asociado al desafío y se suma a un total.
 */
 
 package com.viravira.ecodroid;
@@ -30,14 +30,15 @@ import android.widget.Toast;
 public class Desafio1 extends Activity {
 	
 	public String puntaje;
-
+	String numdesafio;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_desafio1);
 		
-		// A continuaci�n se leen los datos guardados en las preferencias
-		// de la app, y se carga el desaf�o correspondiente.
+		// A continuación se leen los datos guardados en las preferencias
+		// de la app, y se carga el desafío correspondiente.
 		// Luego, se actualizan los TextViews correspondientes con los 
 		// datos guardados.
 
@@ -47,6 +48,13 @@ public class Desafio1 extends Activity {
 		
 		Intent intent = getIntent();
 		int num = intent.getIntExtra("num", 1);
+		if (num==1){
+			numdesafio = "desafio1";
+		}else if(num==2){
+			numdesafio = "desafio2";
+		}else{
+			numdesafio = "desafio3";
+		}
 		
 		try {
 
@@ -62,18 +70,10 @@ public class Desafio1 extends Activity {
 					.getSharedPreferences("Prefs", 0);
 			Random desafiosazar = new Random(); 
 			
-			int desafioint;
+			int desafioint = desafios.getInt(numdesafio, desafiosazar.nextInt(50));
 			
-			if(1 == num){
-				desafioint = desafios.getInt("desafio1", desafiosazar.nextInt(50));
-			} else if(2 == num){
-				desafioint = desafios.getInt("desafio2", desafiosazar.nextInt(50));
-			} else {
-				desafioint = desafios.getInt("desafio3", desafiosazar.nextInt(50));
-			}
-			
-			// El siguiente comando "for" es para saltarse el n�mero
-			// de l�neas necesario para llegar a la l�nea del desaf�o.
+			// El siguiente comando "for" es para saltarse el número
+			// de líneas necesario para llegar a la línea del desafío.
 			for(int i = 0; i < desafioint; i++){
 				archivodesafios.readLine();
 				archivopuntajes.readLine();
@@ -89,15 +89,7 @@ public class Desafio1 extends Activity {
 			tviewpuntaje.setText(puntaje + "pts");
 			
 			SharedPreferences.Editor editor = desafios.edit();
-			
-			if(1 == num){
-				editor.putInt("desafio1", desafioint);
-			} else if(2 == num){
-				editor.putInt("desafio2", desafioint);
-			} else {
-				editor.putInt("desafio3", desafioint);
-			}
-
+			editor.putInt(numdesafio, desafioint);
 			editor.commit();
 
 			try {
@@ -145,16 +137,24 @@ public class Desafio1 extends Activity {
 	
 	public void Completado (View view){
 	
-		// Este m�todo describe el bot�n "Completado".
-		// Aqu� se genera un nuevo desaf�o al completar
-		// el anterior, y se actualiza la informaci�n 
+		// Este método describe el botón "Completado".
+		// Aquí se genera un nuevo desafío al completar
+		// el anterior, y se actualiza la información 
 		// guardada en SharedPreferences.
-		// Tambi�n se actualiza el puntaje total del 
+		// También se actualiza el puntaje total del 
 		// usuario (se suma el ptje anterior con el
-		// puntaje asociado al desaf�o en cuesti�n.
+		// puntaje asociado al desafío en cuestión.
 		
 		Intent intent = getIntent();
 		int num = intent.getIntExtra("num", 1);
+		
+		if (num==1){
+			numdesafio = "desafio1";
+		}else if(num==2){
+			numdesafio = "desafio2";
+		}else{
+			numdesafio = "desafio3";
+		}
 		
 		Random desafiosazar = new Random();
 		
@@ -166,15 +166,7 @@ public class Desafio1 extends Activity {
 		int puntajetotal = Integer.parseInt(puntaje) + desafios.getInt("puntaje", 0);
 		
 		SharedPreferences.Editor editor = desafios.edit();
-
-		if(1 == num){
-			editor.putInt("desafio1", desafiosazar.nextInt(50));
-		} else if(2 == num){
-			editor.putInt("desafio2", desafiosazar.nextInt(50));
-		} else {
-			editor.putInt("desafio3", desafiosazar.nextInt(50));
-		}
-		
+		editor.putInt(numdesafio, desafiosazar.nextInt(50));
 		editor.putInt("puntaje", puntajetotal);
 
 		editor.commit();
