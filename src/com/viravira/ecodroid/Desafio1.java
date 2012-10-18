@@ -70,7 +70,7 @@ public class Desafio1 extends Activity {
 					.getSharedPreferences("Prefs", 0);
 			Random desafiosazar = new Random(); 
 			
-			int desafioint = desafios.getInt(numdesafio, desafiosazar.nextInt(50));
+			int desafioint = desafios.getInt(numdesafio, desafiosazar.nextInt(40));
 			
 			// El siguiente comando "for" es para saltarse el número
 			// de líneas necesario para llegar a la línea del desafío.
@@ -166,7 +166,7 @@ public class Desafio1 extends Activity {
 		int puntajetotal = Integer.parseInt(puntaje) + desafios.getInt("puntaje", 0);
 		
 		SharedPreferences.Editor editor = desafios.edit();
-		editor.putInt(numdesafio, desafiosazar.nextInt(50));
+		editor.putInt(numdesafio, desafiosazar.nextInt(40));
 		editor.putInt("puntaje", puntajetotal);
 
 		editor.commit();

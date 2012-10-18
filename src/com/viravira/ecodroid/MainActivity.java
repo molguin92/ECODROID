@@ -81,9 +81,9 @@ public class MainActivity extends Activity {
 	public String titulo1;
 	public String titulo2;
 	public String titulo3;
-	public String[] Desafios = new String[50];
-	public String[] Puntajes = new String[50];
-	public String[] Titulos = new String[50];
+	public String[] Desafios = new String[40];
+	public String[] Puntajes = new String[40];
+	public String[] Titulos = new String[40];
 	public int puntajetotal;
 
 	@Override
@@ -105,7 +105,7 @@ public class MainActivity extends Activity {
 		// "titulos.txt".
 		// Luego almacena los datos en dos arreglos, Desafios y Puntajes. Se
 		// asume que el
-		// número de desafíos será 50.
+		// número de desafíos será 40.
 
 		try {
 
@@ -116,7 +116,7 @@ public class MainActivity extends Activity {
 			BufferedReader archivotitulos = new BufferedReader(
 					new InputStreamReader(this.getAssets().open("titulos.txt")));
 
-			for (int i = 0; i < 50; i++) {
+			for (int i = 0; i < 40; i++) {
 				Desafios[i] = archivodesafios.readLine();
 				Puntajes[i] = archivopuntajes.readLine();
 				Titulos[i] = archivotitulos.readLine();
@@ -167,9 +167,9 @@ public class MainActivity extends Activity {
 
 		// Cargar valores de los desafíos (cada valor es un int, que luego se
 		// busca en los vectores creados anteriormente.
-		desafioint1 = desafios.getInt("desafio1", desafiosazar.nextInt(50));
-		desafioint2 = desafios.getInt("desafio2", desafiosazar.nextInt(50));
-		desafioint3 = desafios.getInt("desafio3", desafiosazar.nextInt(50));
+		desafioint1 = desafios.getInt("desafio1", desafiosazar.nextInt(40));
+		desafioint2 = desafios.getInt("desafio2", desafiosazar.nextInt(40));
+		desafioint3 = desafios.getInt("desafio3", desafiosazar.nextInt(40));
 
 		puntajetotal = desafios.getInt("puntaje", 0);
 
