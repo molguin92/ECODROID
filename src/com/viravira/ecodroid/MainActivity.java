@@ -81,8 +81,8 @@ public class MainActivity extends Activity {
 	public String titulo1;
 	public String titulo2;
 	public String titulo3;
-	public String[] Desafios = new String[40];
-	public String[] Puntajes = new String[40];
+	//public String[] Desafios = new String[40];
+	//public String[] Puntajes = new String[40];
 	public String[] Titulos = new String[40];
 	public int puntajetotal;
 
@@ -117,8 +117,8 @@ public class MainActivity extends Activity {
 					new InputStreamReader(this.getAssets().open("titulos.txt")));
 
 			for (int i = 0; i < 40; i++) {
-				Desafios[i] = archivodesafios.readLine();
-				Puntajes[i] = archivopuntajes.readLine();
+				//Desafios[i] = archivodesafios.readLine();
+				//Puntajes[i] = archivopuntajes.readLine();
 				Titulos[i] = archivotitulos.readLine();
 			}
 
@@ -173,13 +173,13 @@ public class MainActivity extends Activity {
 
 		puntajetotal = desafios.getInt("puntaje", 0);
 
-		desafio1 = Desafios[desafioint1];
-		desafio2 = Desafios[desafioint2];
-		desafio3 = Desafios[desafioint3];
+		//desafio1 = Desafios[desafioint1];
+		//desafio2 = Desafios[desafioint2];
+		//desafio3 = Desafios[desafioint3];
 
-		puntaje1 = Puntajes[desafioint1];
-		puntaje2 = Puntajes[desafioint2];
-		puntaje3 = Puntajes[desafioint3];
+		//puntaje1 = Puntajes[desafioint1];
+		//puntaje2 = Puntajes[desafioint2];
+		//puntaje3 = Puntajes[desafioint3];
 
 		titulo1 = Titulos[desafioint1];
 		titulo2 = Titulos[desafioint2];
@@ -269,19 +269,34 @@ public class MainActivity extends Activity {
 	// a cada desafío.
 	
 	public void Desafio1(View view) {
-		Intent intent = new Intent(this, Desafio1.class);
+		Intent intent;
+		if(desafioint1<10){
+			intent = new Intent(this, Desafio2.class);
+		} else {
+			intent = new Intent(this, Desafio1.class);
+		}
 		intent.putExtra("num", 1);
 		startActivity(intent);
 	}
 
 	public void Desafio2(View view) {
-		Intent intent = new Intent(this, Desafio1.class);
+		Intent intent;
+		if(desafioint2<10){
+			intent = new Intent(this, Desafio2.class);
+		} else {
+			intent = new Intent(this, Desafio1.class);
+		}
 		intent.putExtra("num", 2);
 		startActivity(intent);
 	}
 
 	public void Desafio3(View view) {
-		Intent intent = new Intent(this, Desafio1.class);
+		Intent intent;
+		if(desafioint3<10){
+			intent = new Intent(this, Desafio2.class);
+		} else {
+			intent = new Intent(this, Desafio1.class);
+		}
 		intent.putExtra("num", 3);
 		startActivity(intent);
 	}

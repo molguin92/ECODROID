@@ -1,0 +1,67 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+        
+   <TextView
+        android:id="@+id/titulodes2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="50dp"
+        tools:context=".Desafio1" />
+    
+    <TextView
+        android:id="@+id/textodes2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="30dp"
+        tools:context=".Desafio1" />
+    
+    <TextView
+        android:id="@+id/puntajedes2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="30dp"
+        tools:context=".Desafio1" />
+    
+    <CheckBox android:id="@+id/checkbox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/check"/>
+    
+    <CheckBox android:id="@+id/checkbox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/check"/>
+    
+    <View 
+        android:id="@+id/espacio1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    
+    <Button 
+        android:id="@+id/btncompletado2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/si"
+        android:textSize="20dp"
+        android:onClick="Completado"
+        tools:context=".Desafio1"/>
+    
+    <Button 
+        android:id="@+id/btncancelar2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/no"
+        android:textSize="20dp"
+        android:onClick="Cancelar"
+        tools:context=".Desafio1"/>
+
+</LinearLayout>

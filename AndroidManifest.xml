@@ -27,6 +27,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.viravira.ecodroid.MainActivity" />
         </activity>
+        <activity
+            android:name=".Desafio2"
+            android:label="@string/title_activity_desafio2" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.viravira.ecodroid.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
