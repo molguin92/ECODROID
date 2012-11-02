@@ -7,7 +7,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Random;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -15,7 +14,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
-import android.widget.CheckBox;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +23,10 @@ public class Desafio2 extends Activity {
 	
 	public String puntaje;
 	public String numdesafio;
+	public int dias;
+	public String fechainicio;
+	private ListView checkboxes;
+	private String[] arr;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -56,7 +60,8 @@ public class Desafio2 extends Activity {
 					new InputStreamReader(this.getAssets().open("puntajes.txt")));
 			BufferedReader archivotitulos = new BufferedReader(
 					new InputStreamReader(this.getAssets().open("titulos.txt")));
-
+			BufferedReader archivodias = new BufferedReader(
+					new InputStreamReader(this.getAssets().open("dias.txt")));
 
 			SharedPreferences desafios = Desafio2.this.getApplicationContext()
 					.getSharedPreferences("Prefs", 0);
@@ -70,32 +75,59 @@ public class Desafio2 extends Activity {
 				archivodesafios.readLine();
 				archivopuntajes.readLine();
 				archivotitulos.readLine();
+				archivodias.readLine();
 			}
 			
 			String texto = archivodesafios.readLine();
 			String titulo = archivotitulos.readLine();
+			dias = Integer.parseInt(archivodias.readLine());
 			puntaje = archivopuntajes.readLine();
 			
 			tviewdesafio.setText(texto);
 			tviewtitulo.setText(titulo);
 			tviewpuntaje.setText(puntaje + getString(R.string.pts));
 			
-			CheckBox check1 = (CheckBox) findViewById(R.id.checkbox1);
-			CheckBox check2 = (CheckBox) findViewById(R.id.checkbox2);
+			//Generar array con los textos de los Checkboxes
 			
-			String desafiocheck1 = desafioint + "_" + "1";
-			String desafiocheck2 = desafioint + "_" + "2";
-			
-			boolean descheck1 = desafios.getBoolean(desafiocheck1, false);
-			boolean descheck2 = desafios.getBoolean(desafiocheck2, false);
-			
-			if(descheck1){
-				check1.setChecked(true);
-			}
-			if(descheck2){
-				check2.setChecked(true);
+			arr = new String[dias];
+			for (int i = 1; i <= dias; i++){
+				arr[i-1] = "Día " + i;
 			}
 			
+			// Agregar los checkboxes correspondientes al ListView
+			
+			checkboxes = (ListView) findViewById(R.id.ChkboxList);
+			checkboxes.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+			checkboxes.setAdapter(new ArrayAdapter(this, 
+					android.R.layout.simple_list_item_multiple_choice, arr));
+		
+			//Recuperar estado de los checkboxes 
+			//TODO Bloquear checkboxes en el "futuro", que no pueden ser realizados todavia
+			
+			boolean state;
+						
+			for (int i=1;i<=dias;i++){
+				state = desafios.getBoolean(desafioint + "_" + i, false);
+				checkboxes.setItemChecked(i-1, state);
+			}
+			
+//			
+//			CheckBox check1 = (CheckBox) findViewById(R.id.checkbox1);
+//			CheckBox check2 = (CheckBox) findViewById(R.id.checkbox2);
+//			
+//			String desafiocheck1 = desafioint + "_" + "1";
+//			String desafiocheck2 = desafioint + "_" + "2";
+//			
+//			boolean descheck1 = desafios.getBoolean(desafiocheck1, false);
+//			boolean descheck2 = desafios.getBoolean(desafiocheck2, false);
+//			
+//			if(descheck1){
+//				check1.setChecked(true);
+//			}
+//			if(descheck2){
+//				check2.setChecked(true);
+//			}
+//			
 			SharedPreferences.Editor editor = desafios.edit();
 			editor.putInt(numdesafio, desafioint);
 			editor.commit();
@@ -124,7 +156,14 @@ public class Desafio2 extends Activity {
 				e.printStackTrace();
 				System.exit(1);
 			}
-
+			try {
+				if (!archivodias.equals(null)) {
+					archivodias.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+				System.exit(1);
+			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 			System.exit(1);
@@ -153,8 +192,8 @@ public class Desafio2 extends Activity {
 		// usuario (se suma el ptje anterior con el
 		// puntaje asociado al desafío en cuestión.
 		
-		CheckBox check1 = (CheckBox) findViewById(R.id.checkbox1);
-		CheckBox check2 = (CheckBox) findViewById(R.id.checkbox2);
+//		CheckBox check1 = (CheckBox) findViewById(R.id.checkbox1);
+//		CheckBox check2 = (CheckBox) findViewById(R.id.checkbox2);
 		
 		Intent intent = getIntent();
 		int num = intent.getIntExtra("num", 1);
@@ -176,18 +215,23 @@ public class Desafio2 extends Activity {
 		
 		int desafioint = desafios.getInt(numdesafio, desafiosazar.nextInt(40));
 		int puntajetotal = Integer.parseInt(puntaje) + desafios.getInt("puntaje", 0);
-		
-		String desafiocheck1 = desafioint + "_" + "1";
-		String desafiocheck2 = desafioint + "_" + "2";
-		
 		SharedPreferences.Editor editor = desafios.edit();
+				
+		for (int i=1;i<=dias;i++){
+			editor.remove(desafioint + "_" + i);
+		}
 		
-		if(check1.isChecked()){
-			editor.putBoolean(desafiocheck1, false);
-		}
-		if(check2.isChecked()){
-			editor.putBoolean(desafiocheck2, false);
-		}
+//		String desafiocheck1 = desafioint + "_" + "1";
+//		String desafiocheck2 = desafioint + "_" + "2";
+		
+
+		
+//		if(check1.isChecked()){
+//			editor.putBoolean(desafiocheck1, false);
+//		}
+//		if(check2.isChecked()){
+//			editor.putBoolean(desafiocheck2, false);
+//		}
 		
 		editor.putInt(numdesafio, desafiosazar.nextInt(40));
 		editor.putInt("puntaje", puntajetotal);
@@ -206,8 +250,8 @@ public class Desafio2 extends Activity {
 	
 	public void Cancelar (View view){
 		
-		CheckBox check1 = (CheckBox) findViewById(R.id.checkbox1);
-		CheckBox check2 = (CheckBox) findViewById(R.id.checkbox2);
+//		CheckBox check1 = (CheckBox) findViewById(R.id.checkbox1);
+//		CheckBox check2 = (CheckBox) findViewById(R.id.checkbox2);
 		
 		Intent intent = getIntent();
 		
@@ -230,22 +274,35 @@ public class Desafio2 extends Activity {
 		
 		int desafioint = desafios.getInt(numdesafio, desafiosazar.nextInt(40));
 		
-		String desafiocheck1 = desafioint + "_" + "1";
-		String desafiocheck2 = desafioint + "_" + "2";
+//		String desafiocheck1 = desafioint + "_" + "1";
+//		String desafiocheck2 = desafioint + "_" + "2";
 		
 		SharedPreferences.Editor editor = desafios.edit();
 		
-		if(check1.isChecked()){
-			editor.putBoolean(desafiocheck1, true);
+		for (int i=1;i<=dias;i++){
+			if (checkboxes.isItemChecked(i-1)){
+				editor.putBoolean(desafioint + "_" + i, true);
+			}else{
+				editor.putBoolean(desafioint + "_" + i, false);
+			}
 		}
-		if(check2.isChecked()){
-			editor.putBoolean(desafiocheck2, true);
-		}
+		
+//		if(check1.isChecked()){
+//			editor.putBoolean(desafiocheck1, true);
+//		}
+//		if(check2.isChecked()){
+//			editor.putBoolean(desafiocheck2, true);
+//		}
 
 		editor.commit();		
 		
 		Desafio2.this.finish();
 		
+	}
+	
+	protected void onStop(){
+		super.onStop();
+		Cancelar(findViewById(R.id.btncancelar2));
 	}
 
 }

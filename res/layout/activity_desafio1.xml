@@ -5,19 +5,21 @@
     android:orientation="vertical" >
         
    <TextView
-        android:id="@+id/titulodes1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="50dp"
-        tools:context=".Desafio1" />
+       android:id="@+id/titulodes1"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:gravity="center"
+       android:text="Title"
+       android:textSize="50dp"
+       tools:context=".Desafio1" />
     
     <TextView
         android:id="@+id/textodes1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="30dp"
+        android:text="Description"
+        android:textSize="22dp"
         tools:context=".Desafio1" />
     
     <TextView
@@ -25,7 +27,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="30dp"
+        android:text="Score"
+        android:textSize="20dp"
         tools:context=".Desafio1" />
     
     <View 

@@ -109,10 +109,10 @@ public class MainActivity extends Activity {
 
 		try {
 
-			BufferedReader archivodesafios = new BufferedReader(
-					new InputStreamReader(this.getAssets().open("desafios.txt")));
-			BufferedReader archivopuntajes = new BufferedReader(
-					new InputStreamReader(this.getAssets().open("puntajes.txt")));
+//			BufferedReader archivodesafios = new BufferedReader(
+//					new InputStreamReader(this.getAssets().open("desafios.txt")));
+//			BufferedReader archivopuntajes = new BufferedReader(
+//					new InputStreamReader(this.getAssets().open("puntajes.txt")));
 			BufferedReader archivotitulos = new BufferedReader(
 					new InputStreamReader(this.getAssets().open("titulos.txt")));
 
@@ -122,22 +122,22 @@ public class MainActivity extends Activity {
 				Titulos[i] = archivotitulos.readLine();
 			}
 
-			try {
-				if (!archivodesafios.equals(null)) {
-					archivodesafios.close();
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-				System.exit(1);
-			}
-			try {
-				if (!archivopuntajes.equals(null)) {
-					archivopuntajes.close();
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-				System.exit(1);
-			}
+//			try {
+//				if (!archivodesafios.equals(null)) {
+//					archivodesafios.close();
+//				}
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//				System.exit(1);
+//			}
+//			try {
+//				if (!archivopuntajes.equals(null)) {
+//					archivopuntajes.close();
+//				}
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//				System.exit(1);
+//			}
 			try {
 				if (!archivotitulos.equals(null)) {
 					archivotitulos.close();
@@ -170,7 +170,7 @@ public class MainActivity extends Activity {
 		desafioint1 = desafios.getInt("desafio1", desafiosazar.nextInt(40));
 		desafioint2 = desafios.getInt("desafio2", desafiosazar.nextInt(40));
 		desafioint3 = desafios.getInt("desafio3", desafiosazar.nextInt(40));
-
+		
 		puntajetotal = desafios.getInt("puntaje", 0);
 
 		//desafio1 = Desafios[desafioint1];
@@ -306,7 +306,7 @@ public class MainActivity extends Activity {
 		"&hashtags=EcoDroid";
 		Uri uri = Uri.parse(tweetUrl);
 		int duration = Toast.LENGTH_LONG;
-		Toast toast = Toast.makeText(getBaseContext(), "Al terminar, pulsa el botón Atrás las veces necesarias hasta volver a la aplicación", duration);
+		Toast toast = Toast.makeText(getBaseContext(), "Al terminar, pulsa el botón Atrás hasta volver a la aplicación", duration);
 		
 		toast.show();
 		startActivity(new Intent(Intent.ACTION_VIEW, uri));
