@@ -11,7 +11,8 @@
        android:gravity="center"
        android:text="Title"
        android:textSize="50dp"
-       tools:context=".Desafio1" />
+       tools:context=".Desafio1"
+       tools:ignore="HardcodedText" />
     
     <TextView
         android:id="@+id/textodes1"
@@ -20,7 +21,8 @@
         android:gravity="center"
         android:text="Description"
         android:textSize="22dp"
-        tools:context=".Desafio1" />
+        tools:context=".Desafio1"
+        tools:ignore="HardcodedText" />
     
     <TextView
         android:id="@+id/puntajedes1"
@@ -29,7 +31,8 @@
         android:gravity="center"
         android:text="Score"
         android:textSize="20dp"
-        tools:context=".Desafio1" />
+        tools:context=".Desafio1"
+        tools:ignore="HardcodedText" />
     
     <View 
         android:id="@+id/espacio"

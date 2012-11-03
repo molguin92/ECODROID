@@ -213,6 +213,16 @@ public class Desafio2 extends Activity {
 		SharedPreferences desafios = context.getSharedPreferences("Prefs",
 						0);
 		
+		//Detectar que todos los checkboxes esten marcados
+		for (int i = 0; i <= checkboxes.getChildCount();i++){
+			if (!checkboxes.isItemChecked(i)){
+				int duration = Toast.LENGTH_SHORT;
+				Toast toast = Toast.makeText(context, "Para completar el desafío correctamente debes marcar TODOS los checkboxes", duration);
+				toast.show();
+				return;
+			}
+		}
+		
 		int desafioint = desafios.getInt(numdesafio, desafiosazar.nextInt(40));
 		int puntajetotal = Integer.parseInt(puntaje) + desafios.getInt("puntaje", 0);
 		SharedPreferences.Editor editor = desafios.edit();
@@ -239,7 +249,7 @@ public class Desafio2 extends Activity {
 		editor.commit();
 		
 		int duration = Toast.LENGTH_SHORT;
-		Toast toast = Toast.makeText(context, "Has ganado " + puntaje + " "+getString(R.string.pts)+
+		Toast toast = Toast.makeText(context, getString(R.string.youvewon) + " " + puntaje + " "+getString(R.string.pts)+
 				"!", duration);
 		
 		toast.show();
