@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#dddddd"
+    android:background="@drawable/fondohojas"
     android:orientation="vertical" >
     
     <LinearLayout 
@@ -42,11 +42,12 @@
 
     <Gallery android:id="@+id/gallery1" android:layout_width="match_parent" android:layout_height="wrap_content"/>
 
-
-    
     <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="#aadddddd"
+        android:padding="3dp" >
 
         <TableRow
             android:id="@+id/tableRow0"
@@ -91,10 +92,10 @@
 
             <Button
                 android:id="@+id/Desafio1"
+                style="@style/ButtonEcoDroid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/boton"
                 android:drawableLeft="@drawable/desafio1"
                 android:onClick="Desafio1"
                 android:text="@string/title_desafio1"
@@ -122,14 +123,14 @@
 
             <Button
                 android:id="@+id/Desafio2"
+                style="@style/ButtonEcoDroid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/boton"
                 android:drawableLeft="@drawable/desafio2"
+                android:onClick="Desafio2"
                 android:text="@string/title_desafio2"
-                android:textSize="20dp"
-                android:onClick="Desafio2" />
+                android:textSize="20dp" />
 
             <View
                 android:id="@+id/spacerh4"
@@ -153,14 +154,14 @@
 
             <Button
                 android:id="@+id/Desafio3"
+                style="@style/ButtonEcoDroid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/boton"
                 android:drawableLeft="@drawable/desafio3"
+                android:onClick="Desafio3"
                 android:text="@string/title_desafio3"
-                android:textSize="20dp"
-                android:onClick="Desafio3" />
+                android:textSize="20dp" />
 
             <View
                 android:id="@+id/spacerh6"
@@ -183,10 +184,10 @@
 
             <Button
                 android:id="@+id/TweetIt"
+                style="@style/ButtonEcoDroid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/boton"
                 android:drawableLeft="@drawable/icono_twitter"
                 android:onClick="TweetIt"
                 android:text="@string/tweetit"
