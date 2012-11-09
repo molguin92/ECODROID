@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Random;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -14,7 +15,10 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +31,7 @@ public class Desafio2 extends Activity {
 	public String fechainicio;
 	private ListView checkboxes;
 	private String[] arr;
+	public int counter;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -41,6 +46,12 @@ public class Desafio2 extends Activity {
 		TextView tviewtitulo = (TextView) findViewById(R.id.titulodes2);
 		TextView tviewdesafio = (TextView) findViewById(R.id.textodes2);
 		TextView tviewpuntaje = (TextView) findViewById(R.id.puntajedes2);
+		Button completado = (Button)findViewById(R.id.btncompletado2);
+		if(dias == checkboxes.getCheckItemIds().length){
+			completado.setEnabled(true);
+		} else {
+			completado.setEnabled(false);
+		}
 		
 		Intent intent = getIntent();
 		int num = intent.getIntExtra("num", 1);
@@ -98,8 +109,20 @@ public class Desafio2 extends Activity {
 			
 			checkboxes = (ListView) findViewById(R.id.ChkboxList);
 			checkboxes.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-			checkboxes.setAdapter(new ArrayAdapter(this, 
+			checkboxes.setAdapter(new ArrayAdapter<Object>(this, 
 					android.R.layout.simple_list_item_multiple_choice, arr));
+			checkboxes.setOnItemClickListener(new OnItemClickListener() {
+				
+				public void onItemClick(AdapterView<?> arg0, View arg1,
+						int arg2, long arg3) {
+					
+					if(dias == checkboxes.getCheckItemIds().length){
+						Button completado = (Button)findViewById(R.id.btncompletado2);
+						completado.setEnabled(true);
+					}
+					
+				}
+			});
 		
 			//Recuperar estado de los checkboxes 
 			//TODO Bloquear checkboxes en el "futuro", que no pueden ser realizados todavia
@@ -175,6 +198,7 @@ public class Desafio2 extends Activity {
 
 
 	}
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -213,15 +237,15 @@ public class Desafio2 extends Activity {
 		SharedPreferences desafios = context.getSharedPreferences("Prefs",
 						0);
 		
-		//Detectar que todos los checkboxes esten marcados
-		for (int i = 0; i <= checkboxes.getChildCount();i++){
-			if (!checkboxes.isItemChecked(i)){
-				int duration = Toast.LENGTH_SHORT;
-				Toast toast = Toast.makeText(context, "Para completar el desafío correctamente debes marcar TODOS los checkboxes", duration);
-				toast.show();
-				return;
-			}
-		}
+//		//Detectar que todos los checkboxes esten marcados
+//		for (int i = 0; i <= checkboxes.getChildCount();i++){
+//			if (!checkboxes.isItemChecked(i)){
+//				int duration = Toast.LENGTH_SHORT;
+//				Toast toast = Toast.makeText(context, "Para completar el desafío correctamente debes marcar TODOS los checkboxes", duration);
+//				toast.show();
+//				return;
+//			}
+//		}
 		
 		int desafioint = desafios.getInt(numdesafio, desafiosazar.nextInt(40));
 		int puntajetotal = Integer.parseInt(puntaje) + desafios.getInt("puntaje", 0);
