@@ -7,13 +7,13 @@
 
     <item name="android:buttonStyle">@style/ButtonEcoDroid</item>
 
-    <item name="android:imageButtonStyle">@style/ImageButtonEcoDroid</item>
+    <!-- <item name="android:imageButtonStyle">@style/ImageButtonEcoDroid</item>
 
     <item name="android:listViewStyle">@style/ListViewEcoDroid</item>
 
     <item name="android:listViewWhiteStyle">@style/ListViewEcoDroid.White</item>
 
-    <item name="android:spinnerItemStyle">@style/SpinnerItemEcoDroid</item>
+    <item name="android:spinnerItemStyle">@style/SpinnerItemEcoDroid</item> -->
 
   </style>
 
